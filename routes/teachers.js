@@ -3,6 +3,7 @@ const Teacher = require("../models/Teachers");
 const path = require("path");
 const multer = require("multer");
 var nodemailer = require('nodemailer');
+const {PASSWORD}=require('../config');
 const {body, check, validationResult } = require('express-validator');
 
 const storage = multer.diskStorage({
@@ -79,20 +80,20 @@ router.post('/editteacher/:id', function (req, res) {
 })
 
 router.post('/mail',(req,res)=>{
-   console.log(req.body);
+  
    
      var transporter = nodemailer.createTransport({
        service: 'gmail',
        auth: {
          user: 'tenminuteversity@gmail.com',
-         pass: 'cwexlmmtrcxxuwbg'
+         pass: PASSWORD
        }
      });
      var mailOptions = {
-       from: `tenminuteversity@gmail.com`,
-       to: req.body.email,
-       subject: 'req.body.name',
-       html: `<h1>Your user name is: </h1>`
+       from: req.body.email,
+       to: 'tenminuteversity@gmail.com',
+       subject: req.body.name,
+       html: `<p>${req.body.messege}</p>`
        
      };
  
@@ -100,7 +101,7 @@ router.post('/mail',(req,res)=>{
        if (error) {
          console.log(error);
        } else {
-         console.log(info);
+        
         res.send('Email has been send');
        }
      });

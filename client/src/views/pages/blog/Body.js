@@ -24,7 +24,11 @@ class Body extends Component {
 
     }
   }
-  bodydatafetch = async (chname) => {
+  bodydatafetch = async (chname,newtopic) => {
+    
+    if(typeof newtopic!== "undefined")
+    this.setState({topic:newtopic})
+    console.log(newtopic);
     this.commentfetch(chname);
     this.reletedpostsfetch(chname);
     const { topic } = this.state;
@@ -125,7 +129,7 @@ class Body extends Component {
       <div>
        <Header/>
         <Sidenav ch={this.state.chapters} redata={this.bodydatafetch} />
-        <Main data={this.state.chaptercontent} rel={this.state.reletedposts} topic={this.state.topic} ch={this.state.ch} commentfetchaction={this.commentfetch} comment={this.state.comments} />
+        <Main data={this.state.chaptercontent} redata={this.bodydatafetch} rel={this.state.reletedposts} topic={this.state.topic} ch={this.state.ch} commentfetchaction={this.commentfetch} comment={this.state.comments} />
 
       </div>
 

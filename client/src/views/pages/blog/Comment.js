@@ -31,7 +31,7 @@ class Comment extends Component {
   render() {
     return (
       <div>
-        <h1 style={{"color":"ActiveCaption","textAlign":"center"}}>Comments</h1>
+        <h4 style={{"color":"ActiveCaption","textAlign":"center"}}>Comments</h4>
         <hr></hr>
         {this.props.fetchcomment.map((data) => (
           <div className="comment" key={Math.random()}>

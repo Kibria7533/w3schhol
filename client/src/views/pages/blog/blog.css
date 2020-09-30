@@ -55,7 +55,7 @@ body {
         font-size: 17px;
         columns: #f1f1f1;
         text-align: center;
-        padding: 14px 16px;
+        padding: 2px 10px;
         text-decoration: none;
         vertical-align: middle;
         overflow: hidden;
@@ -78,10 +78,10 @@ body {
         border: none;
         outline: none;
         color: white;
-        padding: 14px 16px;
+        padding: 14px 9px;
         background-color: inherit;
         font: inherit;
-        margin-right: 20px;
+        margin-right: 4px;
       }
   
       .mynav a:hover,

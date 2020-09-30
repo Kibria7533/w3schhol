@@ -23,7 +23,7 @@ class Main extends Component {
               <p>{data.blogtext}</p>
             </div>
           ))}
-          <Reletedposts releted={this.props.rel} />
+          <Reletedposts releted={this.props.rel} redata={this.props.redata} topic={this.props.topic}/>
           <Comment fetchcomment={this.props.comment} aftercomment={this.props.commentfetchaction} cha={this.props.ch} topic={this.props.topic} />
         </div> : "You didnt add any chapter yet"}
       </div>

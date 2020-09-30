@@ -9,10 +9,10 @@ class Hometotalcourse extends Component {
     <div className="col-lg-8 col-lg-offset-2 col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
       <h1 data-scroll-reveal="enter from the bottom after 0.1s" className="header-line">OUR COURSES </h1>
       <p data-scroll-reveal="enter from the bottom after 0.3s">
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-        Aenean commodo.
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-        Aenean commodo.
+        We are profiding webdevelopments and robotics tutorials.
+        As per your step we make sure you to help cordialy.
+       If are hungry enough to learn please join with us.
+        If you want to be a writter please register to be a writerr.
       </p>
     </div>
   </div>
@@ -33,7 +33,7 @@ class Hometotalcourse extends Component {
           </div>
           <div id="collapse1" className="panel-collapse collapse" style={{height: '0px'}}>
             <div className="panel-body">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis egestas mauris ut vehicula. Cras viverra ac orci ac aliquam. Nulla eget condimentum mauris, eget tincidunt est.</p>
+              <p>In those tutorials you will come to know basic to advance on html,css,bootstrap,javascript.</p>
             </div>
           </div>
         </div>
@@ -41,14 +41,14 @@ class Hometotalcourse extends Component {
           <div className="panel-heading">
             <h4 className="panel-title">
               <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" className="collapsed">
-                <strong>   250+</strong> ENGINEERING COURSES 
+                <strong>   250+</strong>SOFTWARE ENGINEERING COURSES 
               </a>
             </h4>
           </div>
           <div id="collapse2" className="panel-collapse collapse" style={{height: '0px'}}>
             <div className="panel-body">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis egestas mauris ut vehicula. Cras viverra ac orci ac aliquam. Nulla eget condimentum mauris, eget tincidunt est.
+                We are providing you With Nodejs ,Laravel,Django Tutorials Including Some Awesome Projects
               </p>
             </div>
           </div>
@@ -57,14 +57,14 @@ class Hometotalcourse extends Component {
           <div className="panel-heading">
             <h4 className="panel-title">
               <a data-toggle="collapse" data-parent="#accordion" href="#collapse3" className="collapsed">
-                <strong>   153+</strong> MANAGEMENT COURSES 
+                <strong>   50+</strong> ROBOTICS COURSES 
               </a>
             </h4>
           </div>
           <div id="collapse3" className="panel-collapse collapse" style={{height: '0px'}}>
             <div className="panel-body">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis egestas mauris ut vehicula. Cras viverra ac orci ac aliquam. Nulla eget condimentum mauris, eget tincidunt est.
+               We work with aurduno and raspberry pi.All this robotics tutorial will be well explained.
               </p>
             </div>
           </div>
@@ -72,9 +72,9 @@ class Hometotalcourse extends Component {
       </div>
       <div className="alert alert-info" data-scroll-reveal="enter from the bottom after 1.1s">
         <span style={{fontSize: '40px'}}>
-          <strong> 2500 + </strong> 
+          <strong> 25 + </strong> 
           <hr />
-          Centers
+         Live Projects
         </span>
       </div>
     </div>

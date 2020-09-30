@@ -2,7 +2,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const passport = require("passport");
 const User = require("../models/User");
-const { SECRET } = require("../config");
+const { SECRET,PASSWORD } = require("../config");
 var nodemailer = require('nodemailer');
 
 /**
@@ -51,7 +51,7 @@ const userRegister = async (userDets, role, res) => {
         service: 'gmail',
         auth: {
           user: 'tenminuteversity@gmail.com',
-          pass: 'cwexlmmtrcxxuwbg'
+          pass: PASSWORD
         }
       });
       

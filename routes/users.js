@@ -10,7 +10,7 @@ const {
 } = require("../utils/Auth");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
-const { SECRET } = require("../config");
+const { SECRET,PASSWORD } = require("../config");
 var nodemailer = require('nodemailer');
 const bcrypt = require("bcryptjs");
 const { body, check, validationResult } = require('express-validator');
@@ -198,7 +198,7 @@ router.post('/forgotpassordorusername', async (req, res) => {
       service: 'gmail',
       auth: {
         user: 'tenminuteversity@gmail.com',
-        pass: 'cwexlmmtrcxxuwbg'
+        pass: PASSWORD
       }
     });
 

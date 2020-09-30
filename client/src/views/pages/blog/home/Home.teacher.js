@@ -26,12 +26,13 @@ class Hometeacher extends Component {
                     <div className="container set-pad">
                         <div className="row text-center">
                             <div className="col-lg-8 col-lg-offset-2 col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
-                                <h1 data-scroll-reveal="enter from the bottom after 0.1s" className="header-line">OUR FACULTY </h1>
+                                <h1 data-scroll-reveal="enter from the bottom after 0.1s" className="header-line">OUR INSTRUCTOR </h1>
                                 <p data-scroll-reveal="enter from the bottom after 0.3s">
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                                    Aenean commodo.
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                                    Aenean commodo.
+                                    <pre>
+                                        
+                                We are not a teacher, but an awakener.
+                                        A teacher is one who makes himself progressively unnecessary.
+                                         </pre>
         </p>
                             </div>
                         </div>

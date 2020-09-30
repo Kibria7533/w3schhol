@@ -18,6 +18,7 @@ import {
   CRow
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
+import Header from './blog/Header';
 
 class adminlogin extends Component
  {
@@ -58,6 +59,8 @@ formsubmit=async (data)=>{
 
    render(){
     return (
+      <div>
+        <Header/>
       <div className="c-app c-default-layout flex-row align-items-center">
         <CContainer>
           <CRow className="justify-content-center">
@@ -127,6 +130,7 @@ formsubmit=async (data)=>{
             </CCol>
           </CRow>
         </CContainer>
+      </div>
       </div>
     )
    }

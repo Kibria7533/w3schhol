@@ -152,7 +152,7 @@ class makequestion extends Component {
                               <option value="science">Science</option>
                               <option value="arts">Arts</option>
                               <option value="commerce">Commerce</option>
-                              <option value="commerce">Not Applicable</option>
+                              <option value="N/A">Not Applicable</option>
 
 
                         </CSelect>
@@ -165,8 +165,8 @@ class makequestion extends Component {
                         <CSelect custom name="sub" value={this.state.sub}id="select" onChange={this.setsub} >
                           <option value="0">Please select subject</option>
                          
-                          <option value="English">English</option>
-                          <option value="Bangla">Bangla</option>
+                          <option value="English">English Gramer</option>
+                          <option value="Bangla">Bangla-ssc</option>
                           <option value="Physics">Physics</option>
                           <option value="Mathematics">Mathematics</option>
                           <option value="Chemistry">Chemistry</option>

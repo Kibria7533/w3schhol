@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
  
 class Homecontact extends Component {
   constructor() {
@@ -12,7 +12,7 @@ class Homecontact extends Component {
       messege: ""
     }
   }
-  // notify = () => toast("Email has been send!");
+  notify = () => toast("Email has been send!");
   save = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   }
@@ -26,8 +26,8 @@ class Homecontact extends Component {
             'Content-Type': 'application/json'
         }
     }).then(data=>{
-      console.log('dfdf')
-        console.log(data.data)
+      this.setState({name:"",email:"",messege:""});
+       this.notify();
       }).catch(err=>{
         console.log('tttt')
         console.log(err)
@@ -47,10 +47,9 @@ class Homecontact extends Component {
                   <div className="col-lg-8 col-lg-offset-2 col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
                     <h1 data-scroll-reveal="enter from the bottom after 0.1s" className="header-line">CONTACT US</h1>
                     <p data-scroll-reveal="enter from the bottom after 0.3s">
-                      Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                      Aenean commodo.
-                      Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                      Aenean commodo.
+                    All of the above can be taught in engaging ways and reviewed in any of the ways below.  
+                    The content for testing can also be reviewed in the ways below. 
+                     The only limitation is your imagination!
                     </p>
                   </div>
                 </div>
@@ -71,6 +70,17 @@ class Homecontact extends Component {
                         <button type="submit" className="btn btn-info btn-block btn-lg">SUBMIT </button>
                       </div>
                     </form>
+                    <ToastContainer
+position="bottom-center"
+autoClose={3000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+/>
                   </div>
                 </div>
               </div>
@@ -92,9 +102,9 @@ class Homecontact extends Component {
         <h2><strong>Social Conectivity </strong></h2>
         <hr />
         <div>
-          <a href="#">  <img src="assets/img/Social/facebook.png" alt="" /> </a>
-          <a href="#"> <img src="assets/img/Social/google-plus.png" alt="" /></a>
-          <a href="#"> <img src="assets/img/Social/twitter.png" alt="" /></a>
+          <a href="https://www.facebook.com/profile.php?id=100005904976462">  <img src="assets/img/Social/facebook.png" alt="" /> </a>
+          <a href="https://www.youtube.com/channel/UCKpbhNRh9pp1UHFAHsGcunQ?view_as=subscriber"> <img src="assets/img/Social/google-plus.png" alt="" /></a>
+          <a href="https://twitter.com/ominuteversity"> <img src="assets/img/Social/twitter.png" alt="" /></a>
         </div>
       </div>
     </div>

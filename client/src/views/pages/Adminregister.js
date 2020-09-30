@@ -20,6 +20,7 @@ import {
   CRow
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
+import Header from './blog/Header';
 
 
 
@@ -93,6 +94,8 @@ class Adminregister extends Component {
       return (<Redirect to={{ pathname: '/checkactivationlink' }} />)
     }
     return (
+      <div>
+        <Header/>
       <div className="c-app c-default-layout flex-row align-items-center">
         <CContainer>
           <CRow className="justify-content-center">
@@ -201,6 +204,7 @@ class Adminregister extends Component {
             </CCol>
           </CRow>
         </CContainer>
+      </div>
       </div>
     )
   }
