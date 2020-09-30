@@ -1,6 +1,27 @@
 import React, { Component } from 'react';
-
+import axios from 'axios';
 class Homecourse extends Component {
+  constructor(){
+    super();
+    this.state={
+      data:[]
+    }
+  }
+  componentDidMount(){
+    axios.get(`http://localhost:5000/getcourse`, {
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+      }
+  }).then(data=> {
+      console.log(data.data);
+      this.setState({data:data.data})
+
+  }).catch(err => {
+      console.log(err);
+  })
+
+  }
     render() {
         return (
             <div>
@@ -18,45 +39,24 @@ class Homecourse extends Component {
   </div>
   {/*/.HEADER LINE END*/}
   <div className="row">
-    <div className="col-lg-4  col-md-4 col-sm-4" data-scroll-reveal="enter from the bottom after 0.4s">
-      <div className="about-div">
-        <i className="fa fa-paper-plane-o fa-4x icon-round-border" />
-        <h3>Quality Education</h3>
-        <hr />
-        <hr />
-        <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-          Aenean commodo . 
-        </p>
-        <a href="#" className="btn btn-info btn-set">ASK THE EXPERT</a>
+    {this.state.data.map((data,index)=>{
+      return(
+        <div key={index} className="col-lg-4  col-md-4 col-sm-4 justify-content-center" data-scroll-reveal="enter from the bottom after 0.4s">
+        <div className="about-div">
+        <img src={`./uploads/${data.image}`} className="rounded-circle" alt="Cinque Terre" width="204" height="136"/> 
+      <h3>{data.title}</h3>
+          <hr />
+          <hr />
+          <p>
+            {data.text} 
+          </p>
+          <a href={`${data.courseLink}`} target="_blank" className="btn btn-info btn-set">Check Our Course</a>
+        </div>
       </div>
-    </div>
-    <div className="col-lg-4  col-md-4 col-sm-4" data-scroll-reveal="enter from the bottom after 0.5s">
-      <div className="about-div">
-        <i className="fa fa-bolt fa-4x icon-round-border" />
-        <h3>SYSTEMATIC APPROACH</h3>
-        <hr />
-        <hr />
-        <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-          Aenean commodo . 
-        </p>
-        <a href="#" className="btn btn-info btn-set">ASK THE EXPERT</a>
-      </div>
-    </div>
-    <div className="col-lg-4  col-md-4 col-sm-4" data-scroll-reveal="enter from the bottom after 0.6s">
-      <div className="about-div">
-        <i className="fa fa-magic fa-4x icon-round-border" />
-        <h3>ONE TO ONE STUDY</h3>
-        <hr />
-        <hr />
-        <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-          Aenean commodo . 
-        </p>
-        <a href="#" className="btn btn-info btn-set">ASK THE EXPERT</a>
-      </div>
-    </div>
+      )
+    })}
+   
+   
   </div>
 </div>
 

@@ -160,6 +160,9 @@ class Topicstable extends Component {
 
     })
   }
+  simplemenuedit=async(data)=>{
+
+  }
   render() {
     return (
       <div className="container">
@@ -171,6 +174,8 @@ class Topicstable extends Component {
               <li className="filter-active nav-link  d-inline-flex"><Link  to="/Topicstable">Topics Table</Link></li>
               <li className="filter-active nav-link  d-inline-flex"><Link  to="/getcomment">Comments and Releted Posts</Link></li>
               <li className="filter-active nav-link  d-inline-flex"><Link  to="/usersinfo">User's Info</Link></li>
+              <li className="filter-active nav-link  d-inline-flex"><Link  to="/PostQuestion">Add A Question</Link></li>
+              <li className="filter-active nav-link  d-inline-flex"><Link  to="/AllQuestion">All Question</Link></li>
 
             </ul>
           </div>
@@ -184,7 +189,7 @@ class Topicstable extends Component {
             {this.state.menus.map((value, index) => {
               return (
                 <div key={index}>
-                  <li>{value}<button type="submit">Edit</button>/<button type="button" onClick={() => this.deletesimplemenu(value)}>Delete</button></li>
+                  <li>{value}<button type="button" onClick={this.simplemenuedit}>Edit</button>/<button type="button" onClick={() => this.deletesimplemenu(value)}>Delete</button></li>
                   <hr></hr>
                 </div>
 

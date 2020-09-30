@@ -20,7 +20,8 @@ class Comment extends Component {
         'Content-Type': 'application/json'
       }
     }).then(data=>{
-      console.log(data)
+     
+      this.setState({message:""});
       this.props.aftercomment(this.props.cha)
     }).catch(err=>{
       console.log(err);
@@ -42,7 +43,7 @@ class Comment extends Component {
 
 
         <form onSubmit={this.onsubmit}>
-          <textarea name="message" onChange={this.onchange} value={this.state.message} rows={4} cols={90} />
+          <textarea name="message" onChange={this.onchange} value={this.state.message} rows={2} cols={100} />
           <br /><br />
           <input type="submit" />
         </form>

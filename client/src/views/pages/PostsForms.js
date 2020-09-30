@@ -160,8 +160,8 @@ class Forms extends Component {
     this.setState({ [name]: value });
   }
 
-  postsubmit = async (e) => {
-    e.preventDefault();
+  postsubmit = async () => {
+   
     const { topic, chapter, contentinput, codeinput, longdescriptioninput } = this.state;
     await axios.post(`http://localhost:5000/createchapter`, { "Topic": topic, "ch": chapter, "intro": contentinput, "code": codeinput, "blogtext": longdescriptioninput }, {
       headers: {
@@ -169,7 +169,8 @@ class Forms extends Component {
         'Content-Type': 'application/json'
       }
     }).then(data => {
-      
+      console.log(data.data);
+      this.setState({chapter:"",contentinput:"",codeinput:"",longdescriptioninput:""})
     })
 
   }
@@ -182,14 +183,14 @@ class Forms extends Component {
         <div className="row">
           <div className="col-lg-12 d-inline-flex justify-content-center navbar portfolio ">
             <ul id="portfolio-flters nav-item">
-              <li className="filter-active nav-link d-inline-flex"><Link exact to="/writterdashboard">Tables</Link></li>
+              <li className="filter-active nav-link d-inline-flex"><Link  to="/writterdashboard">Tables</Link></li>
 
              
              
             </ul>
           </div>
         </div>
-        <Link exact to="/">Back to User Home</Link>
+        <Link to="/">Back to User Home</Link>
 
         <CRow>
           {/* <CForm onSubmit={this.postsubmit} > */}
@@ -217,10 +218,10 @@ class Forms extends Component {
 
                         <CSelect custom name="select" id="select" onChange={this.settopic}>
                           <option value="0">Please select</option>
-                          {this.state.menus.map(data => {
+                          {this.state.menus.map((data,index)=> {
                             return (
 
-                              <option value={data}>{data}</option>
+                              <option key={index} value={data}>{data}</option>
 
                             )
                           })}
@@ -234,8 +235,8 @@ class Forms extends Component {
                         <br></br>
                         <CSelect custom name="select" id="select" onChange={this.setholder}>
                           <option value="0">Please select submenu holder</option>
-                          {this.state.postmenus.map(data => {
-                            return (<option value={data.name} onSelect={this.setholder}>{data.name}</option>)
+                          {this.state.postmenus.map((data,index)=> {
+                            return (<option key={index} value={data.name} onSelect={this.setholder}>{data.name}</option>)
                           })}
 
 
@@ -246,9 +247,9 @@ class Forms extends Component {
                         {this.state.showtopic ?
                           <CSelect custom name="select" id="select" onChange={this.settopic}>
                             <option value="0">Please select topic</option>
-                            {this.state.activmenus.map(data => {
+                            {this.state.activmenus.map((data,index)=> {
                               return (
-                                <option value={data} onSelect={this.settopic}>{data}</option>
+                                <option key={index}value={data} onSelect={this.settopic}>{data}</option>
 
                               )
                             })}
@@ -261,8 +262,8 @@ class Forms extends Component {
                         <br></br>
                         <CSelect custom name="select" id="select" onChange={this.setholder}>
                           <option value="0">Please select Megamenu</option>
-                          {this.state.postmenus.map(data => {
-                            return (<option value={data.name}>{data.name}</option>)
+                          {this.state.postmenus.map((data,index)=> {
+                            return (<option key={index} value={data.name}>{data.name}</option>)
                           })}
 
 
@@ -272,9 +273,9 @@ class Forms extends Component {
                         {this.state.showtopic ?
                           <CSelect custom name="select" id="select" onChange={this.settopic}>
                             <option value="0">Please select topic</option>
-                            {this.state.activmenus.map(data => {
+                            {this.state.activmenus.map((data,index)=> {
                               return (
-                                <option value={data} onSelect={this.settopic}>{data}</option>
+                                <option key={index} value={data} onSelect={this.settopic}>{data}</option>
 
                               )
                             })}
@@ -284,7 +285,7 @@ class Forms extends Component {
                   </CFormGroup>
                   <CFormGroup>
                     <CLabel htmlFor="vat">Write chapter name</CLabel>
-                    <CInput id="vat" name="chapter" placeholder="chapter" onChange={this.onchangehandeler} />
+                    <CInput id="vat" name="chapter" value={this.state.chapter} placeholder="chapter" onChange={this.onchangehandeler} />
                   </CFormGroup>
                   <CFormGroup row>
                     <CCol md="3">
@@ -295,6 +296,7 @@ class Forms extends Component {
                         name="contentinput"
                         id="textarea-input"
                         rows="9"
+                        value={this.state.contentinput}
                         placeholder="Content..."
                         onChange={this.onchangehandeler}
                       />
@@ -310,6 +312,7 @@ class Forms extends Component {
                         id="textarea-input"
                         rows="9"
                         placeholder="Content..."
+                        value={this.state.codeinput}
                         onChange={this.onchangehandeler}
                       />
                     </CCol>
@@ -324,6 +327,7 @@ class Forms extends Component {
                         id="textarea-input"
                         rows="9"
                         placeholder="Content..."
+                        value={this.state.longdescriptioninput}
                         onChange={this.onchangehandeler}
                       />
                     </CCol>

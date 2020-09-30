@@ -1,6 +1,41 @@
 import React, { Component } from 'react';
-
+import axios from 'axios';
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+ 
 class Homecontact extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: "",
+      email: "",
+      messege: ""
+    }
+  }
+  // notify = () => toast("Email has been send!");
+  save = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+  submit = async (e) => {
+    e.preventDefault();
+
+  
+    await  axios.post(`http://localhost:5000/mail`,this.state,{
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    }).then(data=>{
+      console.log('dfdf')
+        console.log(data.data)
+      }).catch(err=>{
+        console.log('tttt')
+        console.log(err)
+      })
+      
+   
+    
+  }
     render() {
         return (
             <div>
@@ -22,18 +57,18 @@ class Homecontact extends Component {
                 {/*/.HEADER LINE END*/}
                 <div className="row set-row-pad" data-scroll-reveal="enter from the bottom after 0.5s">
                   <div className="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
-                    <form>
+                    <form onSubmit={this.submit}>
                       <div className="form-group">
-                        <input type="text" className="form-control " required="required" placeholder="Your Name" />
+                        <input type="text" name="name" value={this.state.name} onChange={this.save} className="form-control " required="required" placeholder="Your Name" />
                       </div>
                       <div className="form-group">
-                        <input type="text" className="form-control " required="required" placeholder="Your Email" />
+                        <input type="email" name="email" value={this.state.email} onChange={this.save} className="form-control " required="required" placeholder="Your Email" />
                       </div>
                       <div className="form-group">
-                        <textarea name="message" required="required" className="form-control" style={{minHeight: '150px'}} placeholder="Message" defaultValue={""} />
+                        <input type="text" name="messege" value={this.state.messege} onChange={this.save} required="required" className="form-control" style={{minHeight: '150px'}} placeholder="Message"  />
                       </div>
                       <div className="form-group">
-                        <button type="submit" className="btn btn-info btn-block btn-lg">SUBMIT REQUEST</button>
+                        <button type="submit" className="btn btn-info btn-block btn-lg">SUBMIT </button>
                       </div>
                     </form>
                   </div>
@@ -47,10 +82,10 @@ class Homecontact extends Component {
                 <h2><strong>Our Location </strong></h2>
                 <hr />
                 <div>
-                  <h4>234/80 -UFG , New Street,</h4>
-                  <h4>Switzerland.</h4>
-                  <h4><strong>Call:</strong>  + 67-098-907-1269 / 70 / 71 </h4>
-                  <h4><strong>Email: </strong>info@yourdomain.com</h4>
+                  <h4>234/80 -UFG , Banani,</h4>
+                  <h4>Dhaka.</h4>
+                  <h4><strong>Call:</strong>  +8801720588884 </h4>
+                  <h4><strong>Email: </strong>tenminuteversity@gmail.com</h4>
                 </div>
               </div>
       <div className="col-lg-4 col-md-4 col-sm-4   col-lg-offset-1 col-md-offset-1 col-sm-offset-1" data-scroll-reveal="enter from the bottom after 0.4s">

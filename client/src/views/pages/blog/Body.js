@@ -19,7 +19,8 @@ class Body extends Component {
       chaptercontent: [],
       comments: [],
       reletedposts: [],
-      redirect: true
+      redirect: true,
+     
 
     }
   }
@@ -27,16 +28,16 @@ class Body extends Component {
     this.commentfetch(chname);
     this.reletedpostsfetch(chname);
     const { topic } = this.state;
-
     await axios.post(`http://localhost:5000/getchapter`, { "Topic": topic, "ch": chname }, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       }
     }).then(val => {
-      if(val.data.length)
+      if(val.data.length){
       this.setState({ chaptercontent: val.data[0].posts })
       this.setState({ ch: chname })
+      }
 
     })
   }
@@ -63,8 +64,7 @@ class Body extends Component {
         'Content-Type': 'application/json'
       }
     }).then(reletedval => {
-      console.log('reletedval');
-      console.log(reletedval);
+      
       if(reletedval.data[0].reletedposts.length)
       this.setState({ reletedposts: reletedval.data[0].reletedposts[0].reletedpost })
       else
@@ -74,26 +74,49 @@ class Body extends Component {
     })
   }
   async componentDidMount() {
-    console.log('mytopic')
-    console.log(this.state.topic);
+    console.log('hi component did mount');
+    console.log(this.state.topic)
     await axios.post(`http://localhost:5000/allchapter/${this.state.topic}`, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       }
     }).then(data => {
-      console.log(data.data.length)
-      if (data.data[0].posts.length) {
-        this.setState({ redirect: true })
+     
+     console.log(data.data);
+        if(data.data[0].posts.length){
         this.setState({ chapters: data.data[0].posts })
         this.setState({ ch: data.data[0].posts[0].ch })
         this.bodydatafetch(data.data[0].posts[0].ch)
-      }
-      else {
-        this.setState({ redirect: false })
-      }
-
+        }         
     })
+  }
+  async componentWillReceiveProps(topic){
+    console.log('hi component will props');
+    console.log(topic.match.params.html)
+    this.setState({topic:topic.match.params.html})
+   
+    await axios.post(`http://localhost:5000/allchapter/${topic.match.params.html}`, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }).then(data => {
+     
+      if(data.data[0].posts.length){
+        this.setState({ chapters: data.data[0].posts })
+        this.setState({ ch: data.data[0].posts[0].ch })
+        this.bodydatafetch(data.data[0].posts[0].ch)
+        }  
+        else
+        {
+          this.setState({ chapters: [] })
+        this.setState({ ch: "" })
+        this.setState({ chaptercontent: [] })
+
+        }
+    })
+
 
   }
   render() {

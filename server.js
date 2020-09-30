@@ -1,6 +1,6 @@
 
 const exp = require("express");
-const { createProxyMiddleware } = require('http-proxy-middleware');
+const path = require("path");
 
 const bp = require("body-parser");
 const passport = require("passport");
@@ -13,9 +13,11 @@ const { DB, PORT } = require("./config");
 // Initialize the application
 const app = exp();
 const cors = require("cors");
+app.use(exp.static(path.join(__dirname, 'public')))
 // Middlewares
 app.use(cors());
 app.use(passport.initialize());
+
 
 
 
@@ -32,6 +34,10 @@ app.use(require("./routes/posts"));
 app.use(require("./routes/comments"));
 app.use(require("./routes/reletedposts"));
 app.use(require("./routes/menus"));
+app.use(require("./routes/questions"));
+app.use(require("./routes/courses"));
+app.use(require("./routes/teachers"));
+
 app.get('/',(req,res)=>{
   console.log('hi');
   res.send('hhhh')

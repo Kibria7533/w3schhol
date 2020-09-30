@@ -31,6 +31,10 @@ import writters from './views/pages/writters';
 import writteraplicants from './views/pages/writteraplicants';
 import Modals from './views/pages/MOdals';
 import makequestion from './views/pages/makequestion';
+import PostQuestion from './views/pages/PostQuestion';
+import AllQuestions from './views/pages/AllQuestions';
+import Homeinfo from './views/pages/Homeinfo';
+import Teachersinfo from './views/pages/Teachersinfo';
 
 
 
@@ -41,35 +45,36 @@ class App extends Component {
       <BrowserRouter>
         
         <Switch>
-          <Route exact path="/" component={Roothome} />
-          <Route exact path="/userlogin"  component={Login } />
-          <Route exact path="/userregister"  component={Register} />
-          <Route exact path="/checkactivationlink" component={CheckandActive} />
-          <Route exact path="/recoveroractive" component={RecoverOrActive} />
-          <Route exact path="/checkrecover" component={Checkrecover} />
-          <Route exact path="/forgotpassword/:token" component={Changepassword} />
-          <Route exact path="/404"  component={Page404} />
-          <Route exact path="/500" component={Page500} />
-          <Route exact path="/logout" component={Logout} />
-          <Route exact path="/adminregister" component={Adminregister} />
-          <Route exact path="/adminlogin" component={Adminlogin} />
-          <Route exact path="/Superadminlogin" component={Superadminlogin} />
-+         <Route exact path="/topic/:html" component={Body} />
-          <Route exact path="/writterdashboard" component={WritterDashboard} />
-          <Route exact path="/superadminforms" component={Forms} />
-          <Route exact path="/writerforms" component={PostsForms} />
-          <Route exact path="/SupperAdminDashboard" component={SupperAdminDashboard} />
-          <Route exact path="/Supperadmintables" component={Superadmintables} />
-          <Route exact path="/Topicstable" component={Topicstable} />
-          <Route exact path="/getcomment" component={Getallcomments} />
-          <Route exact path="/usersinfo" component={Usersinfo} />
-          <Route exact path="/writter" component={writters} />
-          <Route exact path="/writteraplicant" component={writteraplicants} />
-          <Route exact path="/modal" component={Modals} />
-          <Route exact path="/makequestion" component={makequestion} />
-          
-
-
+          <Route  path="/"exact  component={Roothome} />
+          <Route  path="/userlogin" exact  component={Login } />
+          <Route  path="/userregister" exact  component={Register} />
+          <Route  path="/checkactivationlink"exact  component={CheckandActive} />
+          <Route  path="/recoveroractive"exact  component={RecoverOrActive} />
+          <Route  path="/checkrecover"exact  component={Checkrecover} />
+          <Route  path="/forgotpassword/:token" exact component={Changepassword} />
+          <Route  path="/404" exact  component={Page404} />
+          <Route  path="/500" exact component={Page500} />
+          <Route  path="/logout"exact  component={Logout} />
+          <Route  path="/adminregister"exact  component={Adminregister} />
+          <Route  path="/adminlogin"exact  component={Adminlogin} />
+          <Route  path="/Superadminlogin"exact  component={Superadminlogin} />
++         <Route  path="/topic/:html" exact component={Body} />
+          <Route  path="/writterdashboard"exact  component={WritterDashboard} />
+          <Route  path="/superadminforms" exact component={Forms} />
+          <Route  path="/writerforms" exact component={PostsForms} />
+          <Route  path="/SupperAdminDashboard" exact component={SupperAdminDashboard} />
+          <Route  path="/Supperadmintables" exact component={Superadmintables} />
+          <Route  path="/Topicstable" exact component={Topicstable} />
+          <Route  path="/getcomment" exact component={Getallcomments} />
+          <Route  path="/usersinfo" exact component={Usersinfo} />
+          <Route  path="/writter" exact component={writters} />
+          <Route  path="/writteraplicant" exact component={writteraplicants} />
+          <Route  path="/modal" exact component={Modals} />
+          <Route  path="/makequestion"exact  component={makequestion} />
+          <Route path="/PostQuestion" exact component={PostQuestion}/>
+          <Route path="/AllQuestion" exact component={AllQuestions}/>
+          <Route path="/homeinfo" exact component={Homeinfo}/>
+          <Route path="/teachers" exact component={Teachersinfo}/>
         </Switch>
 
       </BrowserRouter>

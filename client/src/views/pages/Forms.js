@@ -160,6 +160,9 @@ class Forms extends Component {
             <li  className="filter-active nav-link  d-inline-flex"><Link exact to="/Topicstable">Topics Table</Link></li>
             <li  className="filter-active nav-link  d-inline-flex"><Link exact to="/getcomment">Comments and Releted Posts</Link></li>
             <li  className="filter-active nav-link  d-inline-flex"><Link exact to="/usersinfo">User's Info</Link></li>
+            <li className="filter-active nav-link  d-inline-flex"><Link  to="/PostQuestion">Add A Question</Link></li>
+           
+                        <li className="filter-active nav-link  d-inline-flex"><Link  to="/AllQuestion">All Question</Link></li>
           </ul>
         </div>
       </div>

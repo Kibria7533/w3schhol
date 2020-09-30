@@ -155,7 +155,9 @@ const saveedit=async ()=>{
               <li className="filter-active nav-link  d-inline-flex"><Link  to="/Topicstable">Topics Table</Link></li>
               <li className="filter-active nav-link  d-inline-flex"><Link  to="/getcomment">Comments and Releted Posts</Link></li>
               <li className="filter-active nav-link  d-inline-flex"><Link  to="/usersinfo">User's Info</Link></li>
-
+              <li className="filter-active nav-link  d-inline-flex"><Link  to="/PostQuestion">Add A Question</Link></li>
+              <li className="filter-active nav-link  d-inline-flex"><Link  to="/AllQuestion">All Question</Link></li>
+              <li className="filter-active nav-link  d-inline-flex"><Link  to="/homeinfo">Home Info</Link></li>
 
                     </ul>
                 </div>

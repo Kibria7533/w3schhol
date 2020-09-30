@@ -12,17 +12,21 @@ class Main extends Component {
 
     return (
       <div className="main" >
-{this.props.data.length?<div>
-        {this.props.data.map((data,index) => (
-          <div  key={index}><h2>{data.intro}</h2>
-            <a href="#about">{data.ch}</a>
-            <p>{data.blogtext}</p> 
+        {this.props.data.length ? <div>
+          {this.props.data.map((data, index) => (
+            <div key={index}>
+              <h4>{data.ch}</h4>
+              <p>{data.intro}</p>
+              <pre class="prettyprint">
+                {data.code}
+              </pre>
+              <p>{data.blogtext}</p>
             </div>
-        ))}
-        <Reletedposts releted={this.props.rel}/>
-          <Comment fetchcomment={this.props.comment} aftercomment={this.props.commentfetchaction} cha={this.props.ch} topic={this.props.topic}/>
-     </div> :"You didnt add any chapter yet"}
-</div>
+          ))}
+          <Reletedposts releted={this.props.rel} />
+          <Comment fetchcomment={this.props.comment} aftercomment={this.props.commentfetchaction} cha={this.props.ch} topic={this.props.topic} />
+        </div> : "You didnt add any chapter yet"}
+      </div>
     );
   }
 }

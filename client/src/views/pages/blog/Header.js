@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, NavLink, Route, Switch } from 'react-router-dom';
 import Login from '../login/Login';
 import Register from '../register/Register';
 import RecoverOrActive from '../RecoverOrActive';
@@ -37,6 +37,9 @@ class Header extends Component {
     })
   }
   render() {
+  
+
+    
     return (
  
       <div className="row sticky-top">
@@ -46,7 +49,7 @@ class Header extends Component {
             {this.state.menus.map((data,index) => {
               return (
                 <div className="subnav" key={index}>
-                  <button className="subnavbtn" ><Link  to={`/topic/${data}`}> {data} </Link> </button>
+                  <button className="subnavbtn" ><NavLink  to={"/topic/"+data}> {data} </NavLink> </button>
                 </div>
               )
             })}
@@ -56,9 +59,9 @@ class Header extends Component {
                 <div className="subnav" key={index}>
                   <button className="subnavbtn"> {data.name} <i className="fa fa-caret-down"></i> </button>
                   <div className="subnav-content">
-                    {data.submenus.map(subdata => {
+                    {data.submenus.map((subdata,index) => {
                       return (
-                        <Link  to={`/topic/${subdata}`} key={Math.random()}>{subdata}</Link>
+                        <NavLink  to={"/topic/"+subdata} data={subdata} key={index}>{subdata}</NavLink>
                       )
 
                     })}
@@ -68,54 +71,70 @@ class Header extends Component {
                 </div>
               )
             })}
+ 
+ 
 
-
-
-            {this.state.menuwithmega.map((megadata,index) => {
-              return (
-                <div className="mymegamenu" key={index}>
-                  <button className="dropbtn"><Link  to="/css"> {megadata.name} <i className="fa fa-caret-down"></i></Link>
+          
+                <div className="mymegamenu" >
+                  <button className="dropbtn"><NavLink  to="/css"> HTML <i className="fa fa-caret-down"></i></NavLink>
                   </button>
+                  
                   <div className="mymegamenu-content">
                     <div className="row">
                       <div className="column">
                         <h3>Category 1</h3>
-                        <a href="#">link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
+                        <a href="#">Navlink 1</a>
+                        <a href="#">NavLink 2</a>
+                        <a href="#">NavLink 3</a>
+                      </div>
+                      <div className="column">
+                        <h3>Category 1</h3>
+                        <a href="#">Navlink 1</a>
+                        <a href="#">NavLink 2</a>
+                        <a href="#">NavLink 3</a>
+                      </div>
+                      <div className="column">
+                        <h3>Category 1</h3>
+                        <a href="#">Navlink 1</a>
+                        <a href="#">NavLink 2</a>
+                        <a href="#">NavLink 3</a>
                       </div>
                     </div>
                   </div>
                 </div>
-              )
-            })}
+           
 
            <div className="subnav">
-              <button className="subnavbtn"><Link  to="/">Home</Link> </button>
+              <button className="subnavbtn"><NavLink  to="/">Home</NavLink> </button>
             </div>
 
 
             <div className="subnav">
-              <button className="subnavbtn"><Link  to="/userlogin">Login</Link> </button>
+              <button className="subnavbtn"><NavLink  to="/userlogin">Login</NavLink> </button>
             </div>
            
             <div className="subnav">
-              <button className="subnavbtn"><Link  to="/userregister">Register</Link> </button>
+              <button className="subnavbtn"><NavLink  to="/userregister">Register</NavLink> </button>
             </div>
             <div className="subnav">
-              <button className="subnavbtn"><Link  to="/writterdashboard"> writter?</Link> </button>
+              <button className="subnavbtn"><NavLink  to="/writterdashboard"> writter?</NavLink> </button>
             </div>
             <div className="subnav">
-              <button className="subnavbtn"><Link  to="/SupperAdminDashboard">Supper Admin</Link> </button>
+              <button className="subnavbtn"><NavLink  to="/SupperAdminDashboard">Supper Admin</NavLink> </button>
             </div>
             <div className="subnav">
-              <button className="subnavbtn"><Link  to="/makequestion">Make Question</Link> </button>
+              <button className="subnavbtn"><NavLink  to="/makequestion">Make Question</NavLink> </button>
             </div>
+            <div className="subnav">
+              <button className="subnavbtn"><a href="https://kb-quiz.herokuapp.com/" target="_blank">Play Quiz</a></button>
+            </div>
+           
           </div>
+
         </div>
       </div>
 
-     
+    
 
     );
   }
